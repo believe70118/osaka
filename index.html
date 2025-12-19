@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>大阪跨年</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'muji-beige': '#F5F5F0',
+                        'muji-sand': '#E8E4D9',
+                        'muji-brown': '#8C7E6D',
+                        'muji-dark': '#4A4A4A',
+                        'muji-accent': '#A68B6A'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #F5F5F0;
+            color: #4A4A4A;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .tab-content { display: none; }
+        .active-tab { display: block; }
+        .muji-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .nav-active { color: #8C7E6D; font-weight: 700; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .checkbox-muji { accent-color: #8C7E6D; }
+    </style>
+</head>
+<body class="pb-24">
+
+    <header class="bg-white border-b border-muji-sand p-6 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-md mx-auto">
+            <h1 class="text-xl font-bold tracking-tight text-muji-brown mb-1">OSAKA WINTER 2025</h1>
+            <div class="flex items-center text-[10px] text-gray-500 gap-4">
+                <span><i class="fa-solid fa-plane mr-1"></i> 12/28 - 01/01</span>
+                <span><i class="fa-solid fa-hotel mr-1"></i> 谷町君 HOTEL 恵美須町72</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-4 mt-6">
+        
+        <section id="plan" class="tab-content active-tab">
+            <div class="muji-card p-4 mb-6 border-l-4 border-muji-brown">
+                <h3 class="text-xs font-bold text-muji-brown mb-3 uppercase tracking-wider">Flight Info</h3>
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between items-center bg-muji-beige p-2 rounded">
+                        <span class="font-medium">去程 12/28</span>
+                        <span class="font-bold">IT210 07:00-10:25 (T1)</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-muji-beige p-2 rounded">
+                        <span class="font-medium">回程 01/01</span>
+                        <span class="font-bold">IT211 11:30-13:50 (T1)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex overflow-x-auto pb-4 gap-2 no-scrollbar mb-4">
+                <button onclick="showDay(1)" class="day-btn flex-shrink-0 px-4 py-2 muji-card text-xs font-bold bg-white" id="btn-d1">12/28</button>
+                <button onclick="showDay(2)" class="day-btn flex-shrink-0 px-4 py-2 muji-card text-xs font-bold" id="btn-d2">12/29</button>
+                <button onclick="showDay(3)" class="day-btn flex-shrink-0 px-4 py-2 muji-card text-xs font-bold" id="btn-d3">12/30</button>
+                <button onclick="showDay(4)" class="day-btn flex-shrink-0 px-4 py-2 muji-card text-xs font-bold" id="btn-d4">12/31</button>
+                <button onclick="showDay(5)" class="day-btn flex-shrink-0 px-4 py-2 muji-card text-xs font-bold" id="btn-d5">01/01</button>
+            </div>
+
+            <div id="itinerary-content" class="space-y-4">
+                </div>
+        </section>
+
+        <section id="guide" class="tab-content">
+            <h2 class="text-lg font-bold mb-4 italic text-muji-brown"><i class="fa-solid fa-scroll mr-2"></i>深度參拜指南</h2>
+            <div class="space-y-6">
+                <div class="muji-card p-5">
+                    <h3 class="font-bold text-muji-accent border-b border-muji-sand pb-2 mb-3">住吉大社：最強許願法</h3>
+                    <div class="text-xs leading-relaxed space-y-4">
+                        <div class="bg-muji-beige p-3 rounded-lg">
+                            <p class="font-bold mb-1">🏆 【五大力】尋石求財</p>
+                            <p>這是在「五所御前」的一處石欄杆內。<br>
+                            玩法：在滿地的碎石子中，找出分別寫有**「五」、「大」、「力」**的三顆小石頭。<br>
+                            意義：這代表五種力量：壽力、福力、體力、智力、財力。<br>
+                            怎麼用：找到這三顆石頭後，去旁邊的授予所買專屬的**「五大力守袋」**（300日圓），把石頭裝進去。這就是你今年最強的隨身財運護身符！<br>
+                            重點：如果明年願望成真，你要自己找三顆石頭寫上這三字「加倍奉還」回去。</p>
+                        </div>
+                        <div class="bg-muji-beige p-3 rounded-lg">
+                            <p class="font-bold mb-1">🔮 【重輕石】占卜願望</p>
+                            <p>位於末社「大歲社」。<br>
+                            玩法：1.先對神明敬禮參拜。 2.舉起石頭，記住重量。 3.雙手放在石頭上，用中文誠心許願。 4.再次舉起同一個石頭。<br>
+                            結果：如果第二次舉起來覺得**「變輕了」**，代表願望很快會實現；如果覺得「變重了」，代表還需要更多努力。</p>
+                        </div>
+                        <div class="bg-muji-beige p-3 rounded-lg">
+                            <p class="font-bold mb-1">🔮 【楠珺社】求生意興隆</p>
+                            <p>如果你是做生意的，一定要去「楠珺社」。這裡有非常有名的**「招福貓」**。舉左手表示保佑家裡平安，舉右手表示讓生意興隆。</p>
+                        </div>
+                        <p class="text-[10px] text-gray-500 italic">買御守時間：建議在 12/31 22:00 之後前往。<br>參拜順序：大門太鼓橋 → 本宮參拜 → 五大力石 → 大歲社重輕石 → 屋台慶典。</p>
+                    </div>
+                </div>
+
+                <div class="muji-card p-5 border-t-4 border-muji-accent">
+                    <h3 class="font-bold text-muji-accent mb-2">今宮戎神社：敲大鑼</h3>
+                    <div class="text-xs leading-relaxed space-y-2">
+                        <p>堪稱是大阪最強神社，金運上昇首選。想要求金運可以選擇「福小判御守」。</p>
+                        <p class="font-bold">流程：</p>
+                        <p>1. 正常前殿參拜：賽錢箱投幣，行「二禮、二拍手、一禮」。<br>
+                        2. 繞到後殿「敲大鑼」（重點！）：參拜完前殿後，繞到主殿正後方。動作：用手用力拍打木板/圓鑼。用意：提醒惠比壽大神：「我剛才在前面許願了，請一定要記得幫我實現喔！」（因為傳說祂耳朵不好）。</p>
+                    </div>
+                </div>
+
+                <div class="muji-card p-5">
+                    <h3 class="font-bold text-muji-accent mb-2">大國主神社：求種錢</h3>
+                    <div class="text-xs leading-relaxed">
+                        <p>據說出了好幾位中高額彩券的幸運兒。求得**「種錢」**御守上印上商賣繁盛的文字，並包入種錢與福神金象。<br>
+                        <span class="text-red-500 font-bold underline">切記拿到御守後千萬別打開，務必直接放入錢包或金庫中。</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lists" class="tab-content">
+            <h2 class="text-lg font-bold mb-4 italic text-muji-brown"><i class="fa-solid fa-clipboard-check mr-2"></i>行前準備 CheckList</h2>
+            <div id="checklist" class="muji-card p-6 space-y-3 mb-8">
+                </div>
+
+            <h2 class="text-lg font-bold mb-4 italic text-muji-brown"><i class="fa-solid fa-pen-to-square mr-2"></i>個人備忘錄</h2>
+            <div class="muji-card p-4">
+                <textarea id="note-input" rows="6" class="w-full text-sm bg-transparent outline-none border-none resize-none" placeholder="在此輸入筆記... (網址會自動轉連結)"></textarea>
+                <div id="note-links" class="mt-3 flex flex-wrap gap-2"></div>
+            </div>
+        </section>
+
+        <section id="info" class="tab-content">
+            <h2 class="text-lg font-bold mb-4 italic text-muji-brown"><i class="fa-solid fa-circle-info mr-2"></i>實用旅行資訊</h2>
+            <div class="space-y-4">
+                <a href="https://www.jma.go.jp/bosai/forecast/#area_code=270000" target="_blank" class="muji-card p-4 flex justify-between items-center group active:bg-muji-sand transition-colors">
+                    <span class="text-sm font-medium">日本氣象廳 (大阪預報)</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-muji-brown"></i>
+                </a>
+                
+                <div class="muji-card p-5 space-y-4 text-xs">
+                    <div>
+                        <h4 class="font-bold text-muji-brown mb-1">🚉 交通票券與卡片</h4>
+                        <p class="text-gray-500">建議直接使用 ICOCA 或 手機 Apple Pay/Google Pay 綁定 Suica，全程嗶卡即可。12/31 跨年電車通常通宵或延長，記得先儲值好。</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-muji-brown mb-1">🧧 神社參拜硬幣</h4>
+                        <p class="text-gray-500">預先準備大量的 5 日圓硬幣（諧音「有緣」），12/31 三間神社跑下來會用到不少。</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-muji-brown mb-1">💰 大國主「種錢」</h4>
+                        <p class="text-gray-500">財運守護符，建議 16:00 前前往購買最保險。</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-muji-brown mb-1">🔦 住吉大社尋石</h4>
+                        <p class="text-gray-500">半夜找「五大力」石頭需要光線，記得準備手機手電筒。</p>
+                    </div>
+                    <div class="bg-red-50 p-3 rounded-lg border border-red-100">
+                        <h4 class="font-bold text-red-800 mb-1">🚫 出入境禁忌</h4>
+                        <p class="text-red-700">不可攜帶肉製品、新鮮蔬果回台。日本入境請先完成 Visit Japan Web 申報。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-muji-sand px-6 py-3 flex justify-between items-center z-50">
+        <button onclick="switchTab('plan', this)" class="nav-item flex flex-col items-center gap-1 nav-active transition-all">
+            <i class="fa-solid fa-calendar-day text-lg"></i>
+            <span class="text-[10px]">行程表</span>
+        </button>
+        <button onclick="switchTab('guide', this)" class="nav-item flex flex-col items-center gap-1 text-gray-400 transition-all">
+            <i class="fa-solid fa-map-location-dot text-lg"></i>
+            <span class="text-[10px]">參拜導覽</span>
+        </button>
+        <button onclick="switchTab('lists', this)" class="nav-item flex flex-col items-center gap-1 text-gray-400 transition-all">
+            <i class="fa-solid fa-list-check text-lg"></i>
+            <span class="text-[10px]">清單筆記</span>
+        </button>
+        <button onclick="switchTab('info', this)" class="nav-item flex flex-col items-center gap-1 text-gray-400 transition-all">
+            <i class="fa-solid fa-info-circle text-lg"></i>
+            <span class="text-[10px]">實用資訊</span>
+        </button>
+    </nav>
+
+    <script>
+        // --- 行程資料 ---
+        const travelData = {
+            1: {
+                title: "12/28 (六) | 抵達大阪",
+                items: [
+                    { time: "10:25", event: "抵達關西機場", detail: "預估 11:30 出關。" },
+                    { 
+                        time: "12:30", 
+                        event: "南海電鐵 ➔ 飯店寄物", 
+                        route: "關西機場搭乘南海電鐵的「空港線」往「天下茶屋」方向，車程大約需要 40-50 分鐘。在「天下茶屋」下車後，換乘地下鐵四丁目線（方向是「堺筋本町」）到「惠美須町」站，車程大約 5分鐘。從 1-B 出口 出站即可抵達飯店",
+                        map: "谷町君 HOTEL 恵美須町72"
+                    },
+                    { 
+                        time: "13:30", 
+                        event: "午餐：新世界 串炸", 
+                        route: "住宿走路5-10分鐘", 
+                        note: "串炸 八重勝 或 元祖串炸達摩，八重勝在地人更愛，麵衣較薄。",
+                        map: "串かつ 八重勝"
+                    },
+                    { 
+                        time: "15:00", 
+                        event: "通天閣", 
+                        route: "住宿走路5-10分鐘", 
+                        note: "就在飯店旁，可上展望台或看滑梯。",
+                        map: "通天閣"
+                    },
+                    { 
+                        time: "17:00", 
+                        event: "阿倍野 HARUKAS 300", 
+                        route: "從「飯店附近惠美須町」站搭乘到「天王寺」站，車程大約 3分鐘。出站後走路大約 5分鐘 就能到達 阿倍野HARUKAS，或者直接步行15分鐘",
+                        note: "看夜景（日本第一高樓）。",
+                        map: "阿倍野 HARUKAS 300"
+                    },
+                    { 
+                        time: "19:30", 
+                        event: "晚餐：天王寺周邊燒肉/居酒屋", 
+                        note: "萬野 (Manno) 肉質極佳，適合第一晚犒賞自己。",
+                        map: "燒肉萬野 天王寺"
+                    }
+                ]
+            },
+            2: {
+                title: "12/29 (日) | 京都",
+                items: [
+                    { 
+                        time: "08:00", 
+                        event: "出發京都", 
+                        route: "搭乘JR或特急到京都：從大阪站搭乘 JR新快速 前往京都，車程大約 30分鐘。或者搭乘 新幹線（如果有JR pass的話），大約 15分鐘。"
+                    },
+                    { 
+                        time: "09:30", 
+                        event: "清水寺、二三坂", 
+                        route: "抵達京都後，可以先搭乘 市巴士 到 清水寺。乘坐 100號巴士 或 206號巴士，可以直達清水寺。車程大約 15-20分鐘。",
+                        note: "早點去避開人潮。必吃：奧丹清水 或 阿弥河 (Amigawa) 清水寺附近著名的湯豆腐料理。",
+                        map: "清水寺"
+                    },
+                    { 
+                        time: "13:00", 
+                        event: "回到梅田", 
+                        route: "搭乘 阪急電鐵 (京都線特急) 從「京都河原町」直達「大阪梅田站」。",
+                        note: "梅田區包含百貨公司、藍天大廈。",
+                        map: "阪急大阪梅田站"
+                    },
+                    { 
+                        time: "16:00", 
+                        event: "心齋橋 / 道頓堀", 
+                        route: "從梅田可以搭乘 地下鐵御筋線，直達 心齋橋站（約 10-15分鐘）。",
+                        note: "道頓堀：吃美津の (Mizuno)山芋燒非常有名。心齋橋：吃拉麵一蘭 或 金久右衛門",
+                        map: "道頓堀"
+                    },
+                    { time: "19:00", event: "晚餐：大阪燒/拉麵" },
+                    { 
+                        time: "21:00", 
+                        event: "回飯店", 
+                        route: "從「難波」走回飯店或搭一站地鐵回「恵美須町」。" 
+                    }
+                ]
+            },
+            3: {
+                title: "12/30 (一) | 環球影城",
+                items: [
+                    { 
+                        time: "07:30", 
+                        event: "抵達 USJ 排隊", 
+                        route: "搭乘 JR大和路線（或 JR環狀線）到達 ユニバーサルシティ駅，這是環球影城的專用車站，車程大約 20-30分鐘。",
+                        note: "8:30開門，建議越早越好。",
+                        map: "日本環球影城"
+                    },
+                    { time: "20:00", event: "離開園區" },
+                    { time: "21:30", event: "回飯店宵夜補體力" }
+                ]
+            },
+            4: {
+                title: "12/31 (二) | 神社跨年",
+                items: [
+                    { 
+                        time: "10:00", 
+                        event: "大阪城公園", 
+                        note: "天守閣外圍拍照。",
+                        map: "大阪城天守閣"
+                    },
+                    { 
+                        time: "15:00", 
+                        event: "大國主神社", 
+                        route: "搭乘 JR環狀線 或 地下鐵堺筋線 到 南森町站，再步行大約 10分鐘 即可到達。",
+                        note: "務必在此前買到「種錢」。這間神社規模較小，人手較少，建議在 16:00 以前先去買。",
+                        map: "大國主神社 大阪"
+                    },
+                    { 
+                        time: "16:30", 
+                        event: "今宮戎神社", 
+                        route: "從飯店搭乘 地下鐵堺筋線 到 恵美須町站，然後步行大約 5分鐘 即可到達。",
+                        note: "參拜、敲大鑼。12/31 因為有「除夜祭」，通常會開放到深夜，御守晚上 19:00 - 00:00 之後基本上都能買到。",
+                        map: "今宮戎神社"
+                    },
+                    { 
+                        time: "18:00", 
+                        event: "回飯店補眠/跨年蕎麥麵", 
+                        note: "蕎麥麵推薦：總本家 更科 (Sarashina) 步行 5 分鐘。百年老店，麵條偏白精緻，口感滑順。",
+                        map: "總本家 更科"
+                    },
+                    { 
+                        time: "21:00", 
+                        event: "出發往住吉大社", 
+                        route: "搭乘 南海電鐵 從 今宮戎神社 到 住吉大社站。車程約需 20-30分鐘。",
+                        note: "初詣人數第一名。跨年夜會有無數屋台。22:00 重新開門。",
+                        map: "住吉大社"
+                    }
+                ]
+            },
+            5: {
+                title: "01/01 (三) | 返程",
+                items: [
+                    { time: "08:00", event: "退房" },
+                    { 
+                        time: "08:30", 
+                        event: "前往關西機場", 
+                        route: "搭乘 南海空港線，大約 45分鐘 即可抵達關西機場。",
+                        map: "關西國際機場"
+                    },
+                    { time: "11:30", event: "班機起飛 (IT211)" }
+                ]
+            }
+        };
+
+        const defaultChecklist = ["護照", "Esim / 網卡", "行動電源", "暖暖包", "5日圓硬幣大量", "日幣現金", "Visit Japan Web QR Code", "充電線"];
+
+        // --- 功能模組 ---
+
+        function switchTab(tabId, el) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active-tab'));
+            document.getElementById(tabId).classList.add('active-tab');
+            
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('nav-active'));
+            el.classList.add('nav-active');
+            window.scrollTo(0,0);
+        }
+
+        function showDay(day) {
+            const container = document.getElementById('itinerary-content');
+            const data = travelData[day];
+            
+            // 更新按鈕樣式
+            document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('bg-muji-brown', 'text-white'));
+            document.getElementById(`btn-d${day}`).classList.add('bg-muji-brown', 'text-white');
+
+            let html = `<h2 class="text-sm font-bold text-muji-brown mb-2 pl-1">${data.title}</h2>`;
+            
+            data.items.forEach(item => {
+                html += `
+                <div class="muji-card overflow-hidden">
+                    <div class="p-4">
+                        <div class="flex items-start gap-3">
+                            <span class="text-[11px] font-bold text-muji-accent bg-muji-beige px-2 py-0.5 rounded mt-0.5">${item.time}</span>
+                            <div class="flex-1">
+                                <h4 class="text-sm font-bold">${item.event}</h4>
+                                ${item.detail ? `<p class="text-xs text-gray-500 mt-1">${item.detail}</p>` : ''}
+                                ${item.note ? `<p class="text-[11px] text-muji-brown mt-1 font-medium"><i class="fa-solid fa-star-of-life scale-75 mr-1"></i>${item.note}</p>` : ''}
+                            </div>
+                            ${item.map ? `
+                                <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.map)}" target="_blank" class="text-muji-brown active:scale-95 transition-transform">
+                                    <i class="fa-solid fa-map-location-dot text-lg"></i>
+                                </a>
+                            ` : ''}
+                        </div>
+                        ${item.route ? `
+                        <details class="mt-3 border-t border-dotted border-muji-sand pt-2">
+                            <summary class="text-[10px] text-gray-400 font-bold flex items-center justify-between cursor-pointer">
+                                路線詳情 <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                            </summary>
+                            <p class="text-[11px] text-gray-600 mt-2 leading-relaxed bg-muji-beige/50 p-2 rounded">
+                                ${item.route}
+                            </p>
+                        </details>
+                        ` : ''}
+                    </div>
+                </div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        // --- 清單與備忘錄邏輯 ---
+        function initChecklist() {
+            const saved = JSON.parse(localStorage.getItem('travel_checklist')) || defaultChecklist.map(t => ({text: t, done: false}));
+            const container = document.getElementById('checklist');
+            container.innerHTML = saved.map((item, i) => `
+                <div class="flex items-center gap-3">
+                    <input type="checkbox" class="checkbox-muji h-4 w-4 rounded" ${item.done ? 'checked' : ''} onchange="toggleCheck(${i})">
+                    <span class="text-sm ${item.done ? 'line-through text-gray-300' : ''}">${item.text}</span>
+                </div>
+            `).join('');
+        }
+
+        window.toggleCheck = (i) => {
+            const saved = JSON.parse(localStorage.getItem('travel_checklist')) || defaultChecklist.map(t => ({text: t, done: false}));
+            saved[i].done = !saved[i].done;
+            localStorage.setItem('travel_checklist', JSON.stringify(saved));
+            initChecklist();
+        }
+
+        function initNotes() {
+            const noteInput = document.getElementById('note-input');
+            noteInput.value = localStorage.getItem('travel_notes') || '';
+            renderNoteLinks(noteInput.value);
+
+            noteInput.addEventListener('input', (e) => {
+                localStorage.setItem('travel_notes', e.target.value);
+                renderNoteLinks(e.target.value);
+            });
+        }
+
+        function renderNoteLinks(text) {
+            const urlRegex = /(https?:\/\/[^\s]+)/g;
+            const matches = text.match(urlRegex);
+            const linkContainer = document.getElementById('note-links');
+            linkContainer.innerHTML = '';
+            if (matches) {
+                matches.forEach(url => {
+                    const btn = document.createElement('a');
+                    btn.href = url;
+                    btn.target = '_blank';
+                    btn.className = 'text-[10px] bg-muji-sand text-muji-brown px-3 py-1 rounded-full font-bold flex items-center gap-1';
+                    btn.innerHTML = `<i class="fa-solid fa-link text-[8px]"></i> 開啟連結`;
+                    linkContainer.appendChild(btn);
+                });
+            }
+        }
+
+        // 初始化
+        window.onload = () => {
+            showDay(1);
+            initChecklist();
+            initNotes();
+        };
+    </script>
+</body>
+</html>
